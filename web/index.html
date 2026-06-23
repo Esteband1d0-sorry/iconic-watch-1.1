@@ -7,6 +7,18 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>ICONIC Watch — Tienda Oficial</title>
+<meta name="description" content="ICONIC Watch — relojes premium en Colombia. Rolex, Hublot, Richard Mille, Patek Philippe y más de 21 marcas, +200 modelos. Pago contraentrega, garantía incluida, envío gratis.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ICONIC Watch — Tienda Oficial">
+<meta property="og:description" content="Relojes premium en Colombia. 21 marcas, +200 modelos. Pago contraentrega y garantía incluida.">
+<meta property="og:image" content="https://iconic-watch-11-production.up.railway.app/logo.svg">
+<meta property="og:url" content="https://iconic-watch-11-production.up.railway.app/">
+<meta property="og:locale" content="es_CO">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ICONIC Watch — Tienda Oficial">
+<meta name="twitter:description" content="Relojes premium en Colombia. 21 marcas, +200 modelos.">
+<meta name="twitter:image" content="https://iconic-watch-11-production.up.railway.app/logo.svg">
+<link rel="icon" type="image/svg+xml" href="/logo.svg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════
@@ -1660,8 +1672,10 @@ let mData=null,mQtyVal=1;
 function openModal(id,brand,name,price){
   mData={id,brand,name,price};mQtyVal=1;setTimeout(()=>{const el=document.getElementById('wm-qty-n');if(el)el.textContent='1';},10);
   document.getElementById('wm-qty-n').textContent='1';
-  document.getElementById('wm-img').src=`https://drive.google.com/thumbnail?id=${id}&sz=w600`;
-  document.getElementById('wm-img').onerror=function(){this.src=`https://lh3.googleusercontent.com/d/${id}=w600`;this.onerror=null};
+  const wmImg=document.getElementById('wm-img');
+  wmImg.style.display='';wmImg.parentElement.style.background='';
+  wmImg.src=`https://drive.google.com/thumbnail?id=${id}&sz=w600`;
+  wmImg.onerror=function(){this.onerror=function(){this.style.display='none';this.parentElement.style.background='#eee'};this.src=`https://lh3.googleusercontent.com/d/${id}=w600`};
   document.getElementById('wm-brand').textContent=brand;
   document.getElementById('wm-name').textContent=name;
   document.getElementById('wm-price').innerHTML=`$${price.toLocaleString('es-CO')} <small>COP</small>`;
