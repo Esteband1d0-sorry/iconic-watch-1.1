@@ -1,30 +1,29 @@
-# CLI-003 — Relojería
+# ICONIC Watch — Web cliente relojería
 
 | Campo | Valor |
 |---|---|
 | ID | CLI-003 |
-| Cliente | Relojería colombiana (nombre real por confirmar) |
-| Responsable | Gabo |
+| Cliente | Relojería colombiana (ICONIC Watch) |
+| Responsable | Esteban |
 | Tier | 1 — Web básica |
-| Estado | ⛔ Bloqueado — leer sección STOP antes de continuar |
+| Estado | ✅ Desplegado en Railway |
 | Setup | €500 |
 | Mensualidad | €50/mes |
 
-## STOP — Aclarar esto antes de tocar nada
+## Deploy
 
-El cliente vende relojes traídos de Colombia. Antes de personalizar esta web y conectar Stripe, confirmar con el cliente:
+URL: `https://iconic-watch-11-production.up.railway.app`
 
-**¿Los relojes son de marca propia o son réplicas de marcas conocidas (Rolex, Omega, Casio, etc.)?**
+Railway autodeploy activo — cada push a `master` redespliega en ~2 min.
 
-- Si son **marca propia o multimarca con distribución legítima** → seguir adelante normalmente
-- Si son **réplicas AAA** → no se puede hacer tienda online en España. Venderlas online es ilegal (Ley de Marcas), cierra la cuenta de Stripe y puede conllevar sanciones. Alejandro tiene que hablar con el cliente antes de continuar.
-
-Hasta que esto esté aclarado, no se despliega ni se conecta pasarela de pago.
-
-## Contenido actual
+## Estructura
 
 ```
-relojeria/
+iconic-watch-1.1/
   web/
-    index.html    ← landing "KRONOS – Relojes de Autor" (plantilla, no personalizada)
+    index.html    ← landing ICONIC WATCH — Haute Horlogerie
+    logo.svg      ← logo del cliente
+  server.js       ← Express server (sirve web/ en $PORT)
+  package.json
+  railway.toml
 ```
